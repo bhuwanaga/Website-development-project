@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>	
+	<title>Information</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+<script>
+		BhuwanJF = new Image(180,230);
+		BhuwanJF.src="Bhuwan_JobFair.JPG";
+		BhuwanNY= new Image(180,230);
+		BhuwanNY.src= "img1.jpg";
+
+		Linkedin = new Image(180,230);
+		Linkedin.src="img7.jpg";
+		MoreDetails= new Image(180,230);
+		MoreDetails.src= "img6.jpg";
+</script> 	
+
+<style>
+		
+		
+			.navbar {
+				overflow: hidden;
+				background-color: #333;
+				font-family: Arial;
+			}
+
+			.navbar a {
+				float: left;
+				font-size: 16px;
+				color: white;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+			}
+
+			.dropdown {
+				float: left;
+				overflow: hidden;
+			}
+
+			.dropdown .dropbtn {
+				font-size: 16px;    
+				border: none;
+				outline: none;
+				color: white;
+				padding: 14px 16px;
+				background-color: inherit;
+			}
+
+
+			.dropdown-content {
+				display: none;
+				position: absolute;
+				background-color: #f9f9f9;
+				min-width: 160px;
+				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+				z-index: 1;
+			}
+
+			.dropdown-content a {
+				float: none;
+				color: black;
+				padding: 12px 16px;
+				text-decoration: none;
+				display: block;
+				text-align: left;
+			}
+
+			.dropdown-content a:hover {
+				background-color: #ddd;
+			}
+
+			.dropdown:hover .dropdown-content {
+				display: block;
+			}
+					
+					
+			.active {
+			background-color: #4CAF50;
+		}
+		
+		
+		
+		
+		
+		
+		
+</style>
+
+</head>
+
+<body id="pageContent">	
+<div >	
+	<header>
+   
+		<h1>Introduction</h1>		
+    
+	</header>
+		
+				<div class="navbar">
+				  <a href="index.html">Home</a>
+				  <div class="dropdown">
+					<div class="active">
+						<button class="dropbtn">Information<i class="fa fa-caret-down"></i></button>
+					</div>
+					<div class="dropdown-content">
+							<div class="active">
+							<a href="info.html">Info</a>
+							</div>
+							<a href="contact.html">Contact</a>
+							<a href="feedbackform.html">Feedback</a>
+					</div>
+				  </div> 
+					<div class="dropdown">
+						<button class="dropbtn">Experience and Projects<i class="fa fa-caret-down"></i></button>
+					<div class="dropdown-content">
+							<a href="EduExp.html">Experience</a>
+							<a href="projects.html">Projects</a>
+							<a href="AcademicProjects.html">Academic Projects</a>
+							
+					</div>
+				  </div>
+					<a href="about.html">About</a>
+				</div>
+	
+		
+	<main>
+	<div id="mainContent">
+		<article>
+			<h2>Brief Information</h2>
+		<div id="leftSidebar">	
+		
+		<img src="Bhuwan_JobFair.JPG"  alt="BhuwanImage" onmouseover="this.src = BhuwanNY.src" 
+		onmouseout="this.src=BhuwanJF.src" style="width:180px;height:230px;margin-right:20px" >
+		
+		
+			</div>
+				<p>
+				I'm a graduate student at <b>Rutgers University</b> pursuing Masters in Information Technology. I have 3 years of work experience in Software Industry. 
+				Experience in SDLC including requirement analysis, development, test verification. I want to build my career in the field of data science and analytics. 
+				I have completed courses like Analytics for Business Intelligence, Business Database Management, Algorithmic Machine Learning and Web Analytics in Spring 2017. 
+				My area of interest includes Machine Learning, Artificial Intelligence and web application development. 
+				My hobbies are playing table tennis, watching cricket.
+				</p>
+			<a href="https://www.linkedin.com/in/bhuwanagarwal2018/" style="font-style:italic;font-family: times;color: #8A2BE2;font-size: 20px;">Linkedin Profile</a>
+		</article>
+	</div>	
+		<aside>
+			
+			<h2>What I Know</h2>
+			<table>
+				<tr>
+					<th>Programming Languages</th>
+					<td>C/C++, Java, Python, R, SQL.</td> 
+				  </tr>
+			
+				  <tr>
+					<th>Familiar</th>
+					<td>HTML & CSS, Python, JavaScript.</td>
+				  </tr>
+				  <tr>
+					<th>Tools</th>
+					<td>Tableau, Eclipse, Accela, IBM-RQM, HP-QC, Informatica, MySQL</td>
+				  </tr>
+			</table>
+		</aside>	
+	</main>
+	
+
+	<img src="img6.jpg"  alt="MoreInfo" onmouseover="this.src = Linkedin.src" 
+		onmouseout="this.src=MoreDetails.src" style="width:250px;height:120px;margin-left:280px" >
+	
+	<footer>
+		<div class="footer">
+			<p>Bhuwan Agarwal Copyright <script>new Date().getFullYear()>2010&&document.write(new Date().getFullYear());</script> </p>	
+		</div>	
+	</footer>
+</div>
+</body>
+
+</html>

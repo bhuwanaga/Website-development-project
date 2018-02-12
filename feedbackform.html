@@ -1,0 +1,230 @@
+<!doctype html>
+<html>
+<head>
+	<title>Feedback Form</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<style>
+		fieldset, legend, label, select, input {
+			margin-bottom: .5em;
+		}
+
+		fieldset {
+			border: thin gold solid;
+		}
+		legend {
+			font-weight:bold;
+		}
+		
+		#everything {
+		width: 800px;
+		
+	}
+
+	ul {
+	list-style-type: none;
+}
+
+li {
+	float: left;
+	padding: 0 2em;
+}
+
+li a {
+	font-weight:bold;
+	font-size: 1.5em;
+}
+
+#youarehere {
+	text-decoration: none;
+}
+
+li:first-child {
+	border-right: thick solid black;
+}
+	
+
+	.floatLeft {
+		float: left;
+	}
+
+
+	label {
+		display: inline-block;
+		width:100px;
+		margin-right:100px;
+	}
+	
+	main {
+		clear: both;
+		font-family: Verdana, Geneva, sans-serif;
+	}
+
+	.capitalize:first-letter {
+		  text-transform: capitalize;
+		  font-family: times;
+		  color: 	#6A5ACD;
+		  font-size: 30px;
+		  }
+	
+		.navbar {
+				overflow: hidden;
+				background-color: #333;
+				font-family: Arial;
+			}
+
+			.navbar a {
+				float: left;
+				font-size: 16px;
+				color: white;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+			}
+
+			.dropdown {
+				float: left;
+				overflow: hidden;
+			}
+
+			.dropdown .dropbtn {
+				font-size: 16px;    
+				border: none;
+				outline: none;
+				color: white;
+				padding: 14px 16px;
+				background-color: inherit;
+			}
+
+
+			.dropdown-content {
+				display: none;
+				position: absolute;
+				background-color: #f9f9f9;
+				min-width: 160px;
+				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+				z-index: 1;
+			}
+
+			.dropdown-content a {
+				float: none;
+				color: black;
+				padding: 12px 16px;
+				text-decoration: none;
+				display: block;
+				text-align: left;
+			}
+
+			.dropdown-content a:hover {
+				background-color: #ddd;
+			}
+
+			.dropdown:hover .dropdown-content {
+				display: block;
+			}
+					
+					
+			.active {
+			background-color: #4CAF50;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="everything">
+	<header>
+		<div id="headertext" class="floatLeft">
+			<h1>Feedback Form</h1>
+			
+				<div class="navbar">
+				  <a href="index.html">Home</a>
+				  <div class="dropdown">
+					<div class="active">
+						<button class="dropbtn">Information<i class="fa fa-caret-down"></i></button>
+					</div>
+					<div class="dropdown-content">
+							
+							<a href="info.html">Info</a>
+							
+							<a href="contact.html">Contact</a>
+							<div class="active">
+							<a href="feedbackform.html">Feedback</a>
+							</div>
+					</div>
+				  </div> 
+					<div class="dropdown">
+						<button class="dropbtn">Experience and Projects<i class="fa fa-caret-down"></i></button>
+					<div class="dropdown-content">
+							<a href="EduExp.html">Experience</a>
+							<a href="projects.html">Projects</a>
+							<a href="AcademicProjects.html">Academic Projects</a>
+							
+					</div>
+				  </div>
+					<a href="about.html">About</a>
+				</div>
+			
+			<nav>
+				<ul>
+					<li><a id="youarehere" href="feedbackform.html">Form</a></li>
+				</ul>
+			</nav>
+			
+		</div>
+	</header>
+	<main>
+		<article>
+			<br>
+			<h2>Technical Language Survey</h2>
+			<p class="capitalize">Please rate your technical skills in each area below, with 1 being the weakest rating and 5 being the strongest.</p>
+			<form method="POST" action="feedback.php">
+				<fieldset id="skills">
+					<legend>Skills</legend>
+					<label>Java</label>
+					<input type="radio" name="Java" value="1" required>1
+					<input type="radio" name="Java" value="2">2
+					<input type="radio" name="Java" value="3">3
+					<input type="radio" name="Java" value="4">4
+					<input type="radio" name="Java" value="5">5<br>
+					<label>C/C++</label>
+					<input type="radio" name="C" value="1" required>1
+					<input type="radio" name="C" value="2">2
+					<input type="radio" name="C" value="3">3
+					<input type="radio" name="C" value="4">4
+					<input type="radio" name="C" value="5">5<br>
+					<label>Python</label>
+					<input type="radio" name="Python" value="1" required>1
+					<input type="radio" name="Python" value="2">2
+					<input type="radio" name="Python" value="3">3
+					<input type="radio" name="Python" value="4">4
+					<input type="radio" name="Python" value="5">5<br>
+					<label>R</label>
+					<input type="radio" name="R" value="1" required>1
+					<input type="radio" name="R" value="2">2
+					<input type="radio" name="R" value="3">3
+					<input type="radio" name="R" value="4">4
+					<input type="radio" name="R" value="5">5<br>	
+					<label>HTML/CSS/JavaScript </label>	
+					<input  type="radio" name="HCJ" value="1" required>1
+					<input type="radio" name="HCJ" value="2">2
+					<input type="radio" name="HCJ" value="3">3
+					<input type="radio" name="HCJ" value="4">4
+					<input type="radio" name="HCJ" value="5">5<br>	
+					<label>PHP</label>
+					<input type="radio" name="PHP" value="1" required>1
+					<input type="radio" name="PHP" value="2">2
+					<input type="radio" name="PHP" value="3">3
+					<input type="radio" name="PHP" value="4">4
+					<input type="radio" name="PHP" value="5">5<br>
+				</fieldset>
+				
+				<input type="submit" value="Submit">
+			</form>
+		</article>
+	</main>
+	<footer>
+		<p>This site is (c) <script>new Date().getFullYear()>2010&&document.write(new Date().getFullYear());</script> Bhuwan Agarwal.</p>
+	</footer>
+	</div>
+</body>
+</html>

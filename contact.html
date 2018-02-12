@@ -1,0 +1,332 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>	
+	<title>Contact Form</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	
+	<style>
+		.capitalize:first-letter {
+		  text-transform: capitalize;
+		  font-family: times;
+		  color: 	#6A5ACD;
+		  font-size: 30px;
+		  }
+		  
+		.navbar {
+				overflow: hidden;
+				background-color: #333;
+				font-family: Arial;
+			}
+
+			.navbar a {
+				float: left;
+				font-size: 16px;
+				color: white;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+			}
+
+			.dropdown {
+				float: left;
+				overflow: hidden;
+			}
+
+			.dropdown .dropbtn {
+				font-size: 16px;    
+				border: none;
+				outline: none;
+				color: white;
+				padding: 14px 16px;
+				background-color: inherit;
+			}
+
+
+			.dropdown-content {
+				display: none;
+				position: absolute;
+				background-color: #f9f9f9;
+				min-width: 160px;
+				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+				z-index: 1;
+			}
+
+			.dropdown-content a {
+				float: none;
+				color: black;
+				padding: 12px 16px;
+				text-decoration: none;
+				display: block;
+				text-align: left;
+			}
+
+			.dropdown-content a:hover {
+				background-color: #ddd;
+			}
+
+			.dropdown:hover .dropdown-content {
+				display: block;
+			}
+					
+					
+			.active {
+			background-color: #4CAF50;
+		}
+	</style>
+
+
+<script>
+	function fieldEmpty(fieldvalue, errorString) {
+    if (fieldvalue == "") {
+		return (errorString);
+	} else {
+    	return "";    // return empty string
+	}
+}
+// test if radio button is selected //
+function radioButtonSelected (radioButtons, errorString) {
+	radioSelected = -1;
+	// for loop: first need an index i to iterate through array of radio buttons;
+	// next we need to decide if to start at beginning or end of array
+	// i=radioButtons.length-1 means we start at end
+	// test if all elements of array ... know if i > -1 that we have still elements to examine
+	// i-- means that we subtract -1 from i
+	for (i=radioButtons.length-1; i > -1; i--) {
+		if (radioButtons[i].checked) {
+			radioSelected = i; 
+			i = -1;   // set index to -1 so that for loop stops
+		}
+	}
+	// test if we found a selected radio button ... if radioSelected equal to -1, then we have not and return errorString
+	if (radioSelected == -1) {
+		return (errorString);
+	} else {
+		return "";
+	}
+}
+// test how many checkboxes selected //
+function checkboxesSelected (checkboxes, errorString) {
+	// keep a count of how many checkboxes have been selected ... initially zero
+	// have to use var checkboxesSelected = 0; 
+	// because: 1) function is also called "checkboxesSelected" and without explicit var declaration, a name conflict is created.
+	// 2) Good practice to have var when declaring a variable ...not doing it in our JavaScript examples to not add more complexity.
+	var checkboxesSelected = 0;
+	// for loop: first need an index i to iterate through array of checkboxes;
+	// start at beginning of array of checkboxes
+	// i=0 means we start at beginning of array
+	// test if all elements of array have been tested... know if i < checkboxes.length that we have still elements to examine
+	// i-- means that we subtract -1 from i
+	for (i=0; i<checkboxes.length; i++) {
+		// test if current checkbox is checked ... if yes, add 1 to counter
+		if (checkboxes[i].checked) {
+			// increment counter
+			checkboxesSelected += 1; 
+		}
+	}
+	// test how many checkboxes have been selected ... 
+	// if checkboxesSelected equal to 0, then we have not and return errorString
+	if (checkboxesSelected == 0) {
+		return (errorString);
+	} else {
+		return "";
+	}
+}
+// next several functions that might be useful for Exercise 4 "as is" or you can modify them to achieve the desired effect
+// 
+function validateUsername (fieldvalue) {
+    if (fieldvalue == "") return "No Username was entered.\n"
+    else if (fieldvalue.length < 5)
+        return "Usernames must be at least 5 characters.\n"
+    else if (/[^a-zA-Z0-9_-]/.test(fieldvalue))
+        return "Only a-z, A-Z, 0-9, - and _ allowed in Usernames.\n"
+    return ""
+}
+// test length of fieldvalue and whether at least one letter is of a certain type
+function validatePassword (fieldvalue) {
+    if (fieldvalue == "") return "No Password was entered.\n"
+    else if (fieldvalue.length < 6)
+        return "Passwords must be at least 6 characters.\n"
+    else if (!/[a-z]/.test(fieldvalue) || ! /[A-Z]/.test(fieldvalue) ||
+             !/[0-9]/.test(fieldvalue))
+        return "Passwords require one each of a-z, A-Z and 0-9.\n"
+    return ""
+}
+//
+function validateAge (fieldvalue) {
+    if (isNaN(fieldvalue)) return "No Age was entered.\n"
+    else if (fieldvalue < 18 || fieldvalue > 110)
+        return "Age must be between 18 and 110.\n"
+    return ""
+}
+//
+function validateEmail (fieldvalue) {
+    if (fieldvalue == "") return "No Email was entered.\n"
+        else if (!((fieldvalue.indexOf(".") > 0) &&
+                   (fieldvalue.indexOf("@") > 0)) ||
+                  /[^a-zA-Z0-9.@_-]/.test(fieldvalue))
+        return "The Email address is invalid.\n"
+    return ""
+}
+
+function validateState (fieldvalue) {
+    if (fieldvalue == "") return "Please enter a valid two-letter state abbreviation.\n"
+        else if (fieldvalue.length != "2")
+        return "Please enter a valid two-letter state abbreviation.\n"
+    return ""
+}
+// validate function that calls other functions and acculumates errorString and test if this is empty or not //
+function validate (form) {
+    fail  = fieldEmpty(form.firstname.value, "Please enter a first name.\n")  // \n creates new line
+    fail += fieldEmpty(form.lastname.value, "Please enter a last name.\n")
+    fail += fieldEmpty(form.address.value, "Please enter a street address.\n")
+	fail += fieldEmpty(form.town.value, "Please enter a town or city.\n")
+	fail += validateState(form.state.value)
+	fail += fieldEmpty(form.zip.value, "Please enter the zip code.\n")
+	fail += radioButtonSelected(form.ContactPreference, "Please choose a membership status.\n")
+	fail += fieldEmpty(form.telephone.value, "Please enter a telephone number.\n")
+	fail += validateEmail(form.email.value)
+	fail += checkboxesSelected(form.Language, "Please choose two or more options from the checkboxes.\n")
+    if (fail == "") return true
+    else { alert(fail); return false }
+}
+</script>
+
+
+</head>
+
+
+<body id="pageContent">	
+	
+	<header>
+   
+		<h1>Contact Form</h1>		
+    
+	</header>
+	
+	
+				<div class="navbar">
+				  <a href="index.html">Home</a>
+				  <div class="dropdown">
+					<div class="active">
+						<button class="dropbtn">Information<i class="fa fa-caret-down"></i></button>
+					</div>
+					<div class="dropdown-content">
+							
+							<a href="info.html">Info</a>
+							<div class="active">
+							<a href="contact.html">Contact</a>
+							</div>
+							<a href="feedbackform.html">Feedback</a>
+					</div>
+				  </div> 
+					<div class="dropdown">
+						<button class="dropbtn">Experience and Projects<i class="fa fa-caret-down"></i></button>
+					<div class="dropdown-content">
+							<a href="EduExp.html">Experience</a>
+							<a href="projects.html">Projects</a>
+							<a href="AcademicProjects.html">Academic Projects</a>
+							
+					</div>
+				  </div>
+					<a href="about.html">About</a>
+				</div>
+	
+	
+	<main>
+	
+	
+			
+		
+			
+				<p class="capitalize">For more information, please fill the below form and I'll get back to you ASAP!!</p>
+				<form method="POST" action="mailto:bhuwan.agarwal@rutgers.edu" onsubmit="return validate(this)">
+				<fieldset id="personalinfo">
+					<legend>Personal Information</legend>
+					<label for="firstname">First name:</label>
+					<input type="text" id="firstname">
+					<label for="lastname">Last name:</label>
+					<input type="text" id="lastname">
+					<br>
+					<br>
+					<label for="address">Address:</label>
+					<input type="text" id="address" size="75">
+					<br>
+					<br>
+					<label for="town">Town/City:</label>
+					<input type="text" id="town">
+					<label for="state">State:</label>
+					<input type="text" id="state" size="2">
+					<label for="zip">Zip Code:</label>
+					<input type="text" id="zip" size="5">
+					<br>
+					<br>
+				</fieldset>
+				
+				<fieldset id="contactinfo">
+					<legend>Contact Information</legend>
+					<label for="telephone">Phone number:</label>
+					<input type="text" id="telephone">
+					<select id="teltype">
+						<option value='cell'>Cell</option>
+						<option value='home'>Home</option>
+						<option value='work'>Work</option>
+					</select><br>
+					<br>
+					<label for="email">Email:</label>
+					<input type="email" id="email" size="80">
+				</fieldset>
+				<fieldset>
+					<legend>Contact Preference</legend>
+					<label>How should I contact you, please choose one of the following preference of contact:</label><br>
+					<input type="radio" name="ContactPreference" value="Email">Email<br>
+					<input type="radio" name="ContactPreference" value="Phone">Phone<br>
+					<input type="radio" name="ContactPreference" value="Mail">Mail<br>
+				</fieldset>
+				
+				<fieldset id="TechLang">
+				<legend>Interest</legend>
+				<label for="method">Are you interested in learning technical languages?</label>
+					<br>
+					<select id="method">
+						<option value='Yes'>Yes</option>
+						<option value='No'>No</option>
+					</select>
+					<br>
+					<br>
+					<label>Please select the langauges in which you are interested:</label><br>
+					<input type="checkbox" name="Language" value="C/C++">C/C++<br>
+					<input type="checkbox" name="Language" value="Java">Java<br>
+					<input type="checkbox" name="Language" value=".Net">.Net<br>
+					<input type="checkbox" name="Language" value="Python">Python<br>
+					<input type="checkbox" name="Language" value="R">R<br>
+					<input type="checkbox" name="Language" value="HTML/CSS/JavaScript">HTML/CSS/JavaScript<br>
+					<input type="checkbox" name="Language" value="PHP">PHP<br>
+					<input type="checkbox" name="Language" value="SQL">SQL<br>
+					<input type="checkbox" name="Language" value="None">None<br>
+				</fieldset>
+				
+				<fieldset id="other">
+					<legend>Comments/Query</legend>
+					<label for="othertext">Please feel free to ask any questions!</label><br>
+					<textarea id="othertext"></textarea>
+				</fieldset>
+				<input type="submit" value="Submit">
+				<input type="reset" value="Reset">
+			</form>
+
+			
+			
+	</main>
+	
+
+	
+	<footer>
+		<div class="footer">
+			<p>Bhuwan Agarwal Copyright <script>new Date().getFullYear()>2010&&document.write(new Date().getFullYear());</script> </p>	
+		</div>	
+	</footer>
+
+</body>
+
+</html>

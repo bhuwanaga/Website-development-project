@@ -1,0 +1,112 @@
+#pageContent {
+	width: 800px;
+	font-family: sans-serif;
+	background-attachment: fixed;
+	background-position: center; 
+	margin-left: 10px;
+}
+
+#leftSidebar{
+    float: left;
+}
+
+
+
+#rightSidebar{
+	float:right;
+	margin-top: 40px;
+	margin-bottom: 10px;
+	margin-right:10px;
+	margin-left:10px;
+	padding:10px;
+	background-color: #F0FFFF;
+	border-style: solid;
+	border-color: grey;
+	border-top: 20px solid grey;
+	font-style: italic;
+	
+}
+
+#rightSidebar_Contact{
+	float:right;
+	margin-bottom: 10px;
+	margin-right:10px;
+	margin-left:10px;
+	padding:10px;
+	background-color: #90EE90;
+	border-style: solid;
+	border-color: green;
+	border-top: 20px solid #008000;
+	font-style: italic;
+	
+}
+
+
+.navlink a{
+	font-family: times;
+	font-size: 20px;
+	color: grey;
+}
+#leftSidebar h2 {
+	color: grey;
+}
+
+#mainContent p:first-of-type:first-letter{
+	
+	font-style: italic;
+	font-size: 40px;
+    color: 	#696969;
+}
+
+
+.footer{
+	clear: both;
+    background-color: #efefef;
+    color: black;
+    width: 100%;
+    padding-top: 0px;
+    text-align: center;
+}
+
+.one a {
+	
+	font-weight: bold;
+	font-style: italic;
+	color: black;
+	text-decoration: none
+
+}
+
+h1 {
+	font-family: italic;
+}
+
+h2{
+	font-family: monospace;
+}
+
+p{
+	font-family: times;
+	font-size: 18px;
+	font-style: italic;
+}
+
+
+table, th, td {
+    border-width:1px;  
+    border-style:solid;
+	font-family: times;
+	font-style: italic;
+}
+
+fieldset, legend, label, select, input {
+		margin-bottom: .5em;
+	}
+
+	fieldset {
+		border: thin #006400 solid;
+	}
+
+	legend {
+		font-weight: bold;
+	}
